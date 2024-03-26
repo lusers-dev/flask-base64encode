@@ -1,0 +1,34 @@
+Base64 encoding is a method of converting binary data into a text representation using a set of 64 printable ASCII characters. It is commonly used in computer systems to encode binary data, such as images or files, so that it can be safely transmitted over text-based protocols like email or URLs.
+
+Here's a step-by-step mathematical explanation of how Base64 encoding works:
+
+Step 1: Data Preparation
+The data to be encoded is first broken down into a sequence of 8-bit (1 byte) blocks. Each block is represented as a series of 8 bits in binary form. If the last block is not a complete 8-bit block, padding is added to make it a multiple of 8 bits.
+
+Step 2: Conversion to Base64 Characters
+Now, the 8-bit binary data needs to be represented using a set of 64 printable ASCII characters. Base64 uses the following set of characters for encoding: A-Z, a-z, 0-9, "+", and "/".
+
+Step 3: Grouping and Padding
+Every three 8-bit blocks (24 bits) of data are grouped together, forming a 24-bit binary number. This binary number is then divided into four 6-bit chunks. Each 6-bit chunk is then converted into its corresponding Base64 character using a lookup table.
+
+If the data length is not divisible by 3, padding is added to the end of the data to ensure it can be grouped into 6-bit chunks. The padding character used is "=".
+
+Step 4: Lookup Table
+The Base64 encoding uses a lookup table to convert each 6-bit chunk into its corresponding Base64 character. The lookup table maps all 64 possible 6-bit values to the appropriate Base64 character. The table would look like this:
+
+| Binary (6 bits) | Base64 Character |
+|-----------------|------------------|
+| 000000          | A                |
+| 000001          | B                |
+| ...             | ...              |
+| 111110          | v                |
+| 111111          | w                |
+
+Step 5: Final Encoding
+The 6-bit Base64 characters obtained from step 3 are concatenated together to form the final Base64 encoded string.
+
+Step 6: Decoding
+To decode the Base64-encoded data back into its original binary form, the process is reversed. The Base64 characters are converted back to their 6-bit binary representations using the lookup table. Then, the 6-bit chunks are concatenated together to form the original binary data.
+
+In summary, Base64 encoding uses a simple mathematical process to convert binary data into a text representation, using a set of 64 printable ASCII characters. This encoding is widely used in various applications, especially when binary data needs to be transmitted as plain text.
+
